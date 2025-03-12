@@ -21,7 +21,7 @@ public class ExcelService {
   }
 
   public void saveFile() throws IOException { //<-я хз че это, но IDE попросила добавить.
-    FileOutputStream out = new FileOutputStream("test3.xlsx");
+    FileOutputStream out = new FileOutputStream("testa3.xlsx");
     workbook.write(out);
     workbook.close();
   }
@@ -29,10 +29,10 @@ public class ExcelService {
   public void setRowData(int rowNum, String cellText) {
     setRow(rowNum);
     String[] pointsAndNameString = cellText.split(" ");
-    int one = 1;
+    int one = 0;
 
     for (int i = 0; i < 2; i++) {
-      row.createCell(i).setCellValue(pointsAndNameString[one--]);
+      row.createCell(i).setCellValue(pointsAndNameString[one++]);
     }
   }
 
