@@ -6,7 +6,7 @@ public class Main {
   public static void main(String[] args) throws IOException {
     ExcelService excelService = new ExcelService();
     RandStorage randStorage = new RandStorage();
-    for (int i = 0; i < 10; i++) randStorage.putToStorageNameAndCounts();
+    for (int i = 0; i < 150_000; i++) randStorage.putToStorageNameAndCounts();
 
     randStorage.sortDecrementMap();
 
