@@ -9,26 +9,26 @@
     <version>1.0-SNAPSHOT</version>
     <dependencies>
 
-            <!-- Основной модуль POI -->
-            <dependency>
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-                <version>5.2.3</version>
-            </dependency>
+        <!-- Основной модуль POI -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
 
-            <!-- Зависимость для обработки XML -->
-            <dependency>
-                <groupId>org.apache.xmlbeans</groupId>
-                <artifactId>xmlbeans</artifactId>
-                <version>5.1.1</version>
-            </dependency>
+        <!-- Зависимость для обработки XML -->
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>5.1.1</version>
+        </dependency>
 
-            <!-- Зависимость для работы с ZIP-архивами -->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-compress</artifactId>
-                <version>1.23.0</version>
-            </dependency>
+        <!-- Зависимость для работы с ZIP-архивами -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.23.0</version>
+        </dependency>
 
 
         <dependency>

@@ -10,11 +10,7 @@ public class RandStorage {
 
   private RandomService randomService = new RandomService();
   public final Map<Integer, String> namesAndPointsHashMap = new HashMap<>();
-  private String nameKeys;
   public List<Integer> keysPoints = new ArrayList<>();
-  public List<String> namesAndPointsList = new ArrayList<>();
-
-
 
   public void sortDecrementMap() {
     keysPoints.sort(Comparator.reverseOrder());
