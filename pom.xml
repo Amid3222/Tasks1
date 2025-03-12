@@ -9,10 +9,38 @@
     <version>1.0-SNAPSHOT</version>
     <dependencies>
 
+            <!-- Основной модуль POI -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>5.2.3</version>
+            </dependency>
+
+            <!-- Зависимость для обработки XML -->
+            <dependency>
+                <groupId>org.apache.xmlbeans</groupId>
+                <artifactId>xmlbeans</artifactId>
+                <version>5.1.1</version>
+            </dependency>
+
+            <!-- Зависимость для работы с ZIP-архивами -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>1.23.0</version>
+            </dependency>
+
+
         <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>5.2.3</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.20.0</version> <!-- Проверьте наличие последней версии -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version> <!-- Укажите актуальную версию -->
         </dependency>
 
         <dependency>
@@ -20,6 +48,7 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
+
     </dependencies>
     <properties>
         <maven.compiler.source>23</maven.compiler.source>
