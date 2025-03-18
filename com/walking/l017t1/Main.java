@@ -13,6 +13,9 @@ public class Main {
         return result;
     }
 
+    Words exmple = Words.BYE;
+    String  sz = exmple.getRightWord();
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
