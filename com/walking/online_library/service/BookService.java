@@ -16,58 +16,68 @@ public class BookService {
         this.userService = new UserService(u);
     }
 
-    public void newUser(User user) {
-        this.user = user;
-        this.userService = new UserService(user);
-    }
-
     public void showLib() {
         System.out.println("Библиотека база " + lib.getBooks());
     }
 
-    public String getListOfBooks() {
-        StringBuilder sb = new StringBuilder("s");
+    public static String getListOfAvailableBooks() {
+        StringBuilder sb = new StringBuilder();
         for (Book b : lib.getBooks()) sb.append(b.toString());
         return sb.toString();
     }
 
-    public void findBook(String name) throws Exception {
-        if (userService.isDaysExpiredOnAnyBook()) userService.addViolation();
-        if (userService.checkBan()) System.out.println("Вы не можете пользоваться библиотекой");
-        else if (userService.isMoreThan3Books())
-            throw new Exception("Вы взяли максимально число книг, чтобы взять новую книгу верните какую нибудь одну.");
+    public String getBookById(String id) {
+        for (Book b : lib.getBooks()) if (b.getId().equals(id)) return b.getName();
+        return null;
+    }
 
+
+    public String findBook(String name) {
+        if (userService.isDaysExpiredOnAnyBook()) userService.addViolation();
+        if (userService.checkBan()) return "You can't use the library.";
+        else if (userService.isMoreThan3Books())
+            return ("You have taken the maximum number of books, to take a new book, return one of them.");
         else {
             boolean res = false;
             for (Book b : lib.getBooks()) {
                 if (b.getName().equals(name)) {
                     getChosenBookToUser(b);
                     res = true;
-                    break;
+                    System.out.println("The book is taken " + b.toString() + " // " + user.toString());
+                    return "The book is taken " + b.toString();
                 }
             }
-            if (!res) throw new Exception("Книга не найдена");
+            if (!res) return "Book not found";
         }
+        return null;
     }
 
     public void getChosenBookToUser(Book b) {
         user.getPersonalLibOfUser().add(new TakenBook(b));
         lib.getTakenBooks().add(b);
         lib.getBooks().remove(b);
-        System.out.println("книга добавлена");
+        //System.out.println("книга добавлена");
     }
 
-    public void takeBookToLib(String name) {
+    public String getUserBooksLib() {
+        StringBuilder sb = new StringBuilder();
+        for (TakenBook b : user.getPersonalLibOfUser()) sb.append(b.toString());
+        return sb.toString();
+    }
+
+    public String takeBookToLib(String id) {
         boolean flag = false;
-        Book b2 = null;
+        TakenBook b2 = null;
         for (TakenBook b : user.getPersonalLibOfUser()) {
-            if (b.getName().equals(name)) {
-                lib.getTakenBooks().remove((Book) b);
-                lib.getBooks().add((Book) b);
+            if (b.getBook().getId().equals(id)) {
+                lib.getTakenBooks().remove(b.getBook());
+                lib.getBooks().add(b.getBook());
                 flag = true;
                 b2 = b;
             }
         }
         if (flag) user.getPersonalLibOfUser().remove(b2);
+        if (flag) return "The book is returned";
+        else return "Id is wrong";
     }
 }

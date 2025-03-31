@@ -1,22 +1,25 @@
 package com.walking.online_library.model;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class Book {
-    private String name;
-    private String author;
+    private final String name;
+    private final String author;
+    private final String id;
 
     public Book(String author, String name) {
         this.author = author;
         this.name = name;
+        this.id = String.valueOf(new Random().nextInt(100));
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getAuthor() {
-        return author;
     }
 
     @Override
@@ -33,6 +36,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Name: " + name + " " + "author: " + author + "\n";
+        return "ID: " + id + " Name: " + name + " " + " Author: " + author + "\n";
     }
 }
