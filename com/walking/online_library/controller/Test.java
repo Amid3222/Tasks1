@@ -5,7 +5,7 @@ import com.walking.online_library.model.User;
 import com.walking.online_library.service.BookService;
 
 
-public class Main {
+public class Test {
     public static void main(String[] args) {
         User user1 = new User("genda", 123);
         BookService bookService = new BookService(user1);
