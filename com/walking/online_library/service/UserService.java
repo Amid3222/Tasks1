@@ -8,11 +8,18 @@ import java.time.temporal.ChronoUnit;
 
 
 public class UserService {
-    private final User user;
+    private User user;
     private int violationCounter = 0;
 
-    public UserService(User user) {
+    public void setUser(User user) {
         this.user = user;
+    }
+
+    public String doCheck() {
+        if (checkBan()) return "You can't use the library.";
+        if (isMoreThan3Books())
+            return "You have taken the maximum number of books, to take a new book, return one of them.";
+        return null;
     }
 
     public boolean checkBan() {
@@ -20,7 +27,7 @@ public class UserService {
     }
 
     public boolean isMoreThan3Books() {
-        return user.getPersonalLibOfUser().size() >= 3;
+        return user.getPersonalBooks().size() >= 3;
     }
 
     public void addViolation() {
@@ -29,7 +36,7 @@ public class UserService {
     }
 
     public boolean isDaysExpiredOnAnyBook() {
-        for (TakenBook book : user.getPersonalLibOfUser())
+        for (TakenBook book : user.getPersonalBooks())
             if (ChronoUnit.DAYS.between(book.getTakenAss(), LocalDateTime.now()) >= 14) return true;
         return false;
     }

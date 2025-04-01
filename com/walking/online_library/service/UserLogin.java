@@ -15,13 +15,19 @@ public class UserLogin {
         return true;
     }
 
-    public static List<User> getUserlist() {
-        return userlist;
-    }
-
     public static User foundUserInList(String name, int pass){
         for (User u : userlist) if (u.hashCode()== Objects.hash(name, pass)) return u;
         return null;
     }
 
+    /*
+    public static User getUserByName(String name){
+       for(User u : userlist) if(u.getName().equals(name)) return u;
+       return null;
+    }
+
+    public static List<User> getUserlist() {
+        return userlist;
+    }
+*/
 }

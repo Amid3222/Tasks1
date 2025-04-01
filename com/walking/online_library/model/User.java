@@ -6,25 +6,29 @@ import java.util.Objects;
 
 public class User {
     private String name;
-    private int pass;
-    private List<TakenBook> personalLibOfUser = new ArrayList<>();
+    private int password;
+    private List<TakenBook> personalBooks = new ArrayList<>();
     public boolean isUserBanned = false;
 
     public User(String name, int pass) {
         this.name = name;
-        this.pass = pass;
+        this.password = pass;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return pass == user.pass && Objects.equals(name, user.name);
+        return password == user.password && Objects.equals(name, user.name);
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, pass);
+        return Objects.hash(name, password);
     }
 
     @Override
@@ -34,8 +38,8 @@ public class User {
                 '}';
     }
 
-    public List<TakenBook> getPersonalLibOfUser() {
-        return personalLibOfUser;
+    public List<TakenBook> getPersonalBooks() {
+        return personalBooks;
     }
 
 }
