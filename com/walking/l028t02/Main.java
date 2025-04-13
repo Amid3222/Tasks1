@@ -12,4 +12,6 @@ public class Main {
         wrap1.setObject(testObj);
         System.out.println(wrap1.getObject());
     }
+
+
 }

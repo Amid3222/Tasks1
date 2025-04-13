@@ -11,6 +11,8 @@ public class Wrapper<T> {
         return object;
     }
 
+
+
     public boolean isObjectNull() {
         return object == null;
     }

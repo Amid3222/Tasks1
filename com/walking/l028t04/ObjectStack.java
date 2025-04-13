@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ObjectStack<T> {
 
-    private List<T> stack = new ArrayList<>();
+    public List<T> stack = new ArrayList<>();
 
     public void addToStack(T t) {
         stack.add(t);

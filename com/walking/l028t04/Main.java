@@ -12,5 +12,11 @@ public class Main {
         System.out.println(integerObjectStack);
         System.out.println(integerObjectStack.findInStack(115));
         System.out.println(integerObjectStack.getDeep());
+
+    xa(integerObjectStack);
+    }
+
+    public static void xa(ObjectStack<?> obj){
+
     }
 }
