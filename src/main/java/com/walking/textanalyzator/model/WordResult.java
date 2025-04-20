@@ -1,7 +1,11 @@
 package com.walking.textanalyzator.model;
+import lombok.Getter;
+
+
 import java.time.LocalDateTime;
 
 public final class WordResult {
+    @Getter
     private final String word;
     private final LocalDateTime timeStamp;
 
@@ -10,7 +14,4 @@ public final class WordResult {
         this.timeStamp = LocalDateTime.now();
     }
 
-    public String getWord() {
-        return word;
-    }
 }

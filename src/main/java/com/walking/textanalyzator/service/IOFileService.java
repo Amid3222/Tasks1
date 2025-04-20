@@ -1,5 +1,7 @@
 package com.walking.textanalyzator.service;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,7 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
+@Slf4j
 public class IOFileService {
     public File readFile;
     public File writeFile;
@@ -19,18 +21,21 @@ public class IOFileService {
             while ((string = bufferedReader.readLine()) != null) {
                 sb.append(string).append("\n");
             }
+            log.info("Файл прочитан");
             return sb.toString();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
         return "";
     }
 
-    public void writeToFile() {
+    public void writeToFile(String string) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(writeFile))) {
-
+            bufferedWriter.write(string);
+            bufferedWriter.flush();
+            log.info("Файл записан");
         } catch (IOException e) {
-            e.getMessage();
+            log.error(e.getMessage());
         }
     }
 }
